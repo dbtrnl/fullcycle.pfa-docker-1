@@ -4,6 +4,6 @@ WORKDIR /usr/src/app
 
 COPY ["package.json", "package-lock.json", "index.js", "./"]
 
-CMD ["npm install"]
+RUN npm i --production
 
 ENTRYPOINT ["node", "index.js"]

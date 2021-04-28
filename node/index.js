@@ -11,7 +11,7 @@ app.listen(3000, () => {
 });
 
 const db = mysql.createConnection({
-	host: '127.0.0.1',
+	host: 'pfa-mysql',
 	user: 'root',
 	password: 'mysql',
 	database: 'fc',

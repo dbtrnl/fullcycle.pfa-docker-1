@@ -4,25 +4,36 @@ green=`tput setaf 2`
 reset=`tput sgr0`
 
 echo
-echo "Stopping container..."
-docker stop pfa-mysql
-
-if [ $? -ne 0 ]
-  then
-    echo "${red}Error stopping container. Already stopped?${reset}"
-  else
-    echo "${green}Container stopped...${reset}"
-fi
-
-echo
-echo "Removing container..."
-docker rm pfa-mysql
+echo "Stopping and removing Nginx container..."
+docker rm pfa-nginx -f
 
 if [ $? -ne 0 ]
   then
     echo "${red}Error during container removal. Already deleted?${reset}"
   else
-    echo "${green}Container deleted...${reset}"
+    echo "${green}Nginx container deleted...${reset}"
+fi
+
+echo
+echo "Stopping and removing MySQL container..."
+docker rm pfa-mysql -f
+
+if [ $? -ne 0 ]
+  then
+    echo "${red}Error during container removal. Already deleted?${reset}"
+  else
+    echo "${green}MySQL container deleted...${reset}"
+fi
+
+echo
+echo "Stopping and removing NodeJS container..."
+docker rm pfa-node -f
+
+if [ $? -ne 0 ]
+  then
+    echo "${red}Error during container removal. Already deleted?${reset}"
+  else
+    echo "${green}NodeJS container deleted...${reset}"
 fi
 
 echo
