@@ -47,5 +47,11 @@ if [ $? -ne 0 ]
     echo "${green}Network deleted...${reset}"
 fi
 echo
+echo "${green}Removing images...${reset}"
+docker image rm dnbtr/pfa-node > /dev/null 2>&1
+docker image rm dnbtr/pfa-mysql > /dev/null 2>&1
+docker image rm dnbtr/pfa-nginx > /dev/null 2>&1
+
+echo
 echo "${green}Done.${reset}"
 echo
