@@ -19,7 +19,7 @@ fi
 
 echo
 echo "Creating database container..."
-docker run --name pfa-mysql -h 127.0.0.1 -p 3306 --network=pfa -e MYSQL_ROOT_PASSWORD=mysql -d mysql
+docker run --name pfa-mysql -h 127.0.0.1 -p 3306 --network=pfa -d dnbtr/pfa-mysql
 
 # Error treatment
 if [ $? -ne 0 ]
