@@ -49,7 +49,7 @@ error_treatment
 # Wait until MySQL is ready for connections...
 echo "
 Waiting 15 seconds until database is ready..."
-countdown 1
+countdown 15
 until docker exec -i pfa-mysql mysql -uroot -pmysql -e "show databases" > /dev/null 2>&1
 do
   echo "Database not yet ready. Waiting 5 secs to try again..."
